@@ -4,15 +4,13 @@ import com.theoria.vector.utils.DistanceUtils;
 
 public class Main {
 
-    public static void main(String[] args) {
+    static void main() {
         System.out.println("=== LexNode Vector Engine ===");
         System.out.println("Java Environment: " + Runtime.version());
         System.out.println("Available Core Workers: " + Runtime.getRuntime().availableProcessors());
 
         System.out.println("=== Test Vectors ===");
         testVector();
-
-
     }
 
         static void testVector() {
@@ -24,6 +22,7 @@ public class Main {
 
         System.out.printf("Euclidean Distance: %.1f%n", + euclidean);
         System.out.printf("Cosine Similarity: %.4f%n", + cosine);
+
     }
 
 }
