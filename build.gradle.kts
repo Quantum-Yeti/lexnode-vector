@@ -1,5 +1,3 @@
-import sun.jvmstat.monitor.MonitoredVmUtil.mainClass
-
 plugins {
     id("java")
     application
@@ -13,13 +11,20 @@ repositories {
 }
 
 dependencies {
+    // Bill of Materials (BOM) enforces dependency alignment
+    // across the JUnit 5 ecosystem and avoids version conflict bugs
     testImplementation(platform("org.junit:junit-bom:5.10.0"))
     testImplementation("org.junit.jupiter:junit-jupiter")
+
+    // Explicit inclusion ensures seamless test execution within Gradle 8+
+    // command-line test runners and modern IDEs
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 
 java {
-    toolchain {
+    toolchain {{}
+        // Enforce Java 25 via Toolchains to guarantee reproducible builds
+        // across environments and CI/CD pipelines
         languageVersion.set(JavaLanguageVersion.of(25))
     }
 }
